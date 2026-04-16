@@ -39,13 +39,13 @@
   </style>
   <style>
     :root {
-      --yellow:  #FFD600;
-      --orange:  #FF6B35;
-      --pink:    #FF3CAC;
-      --blue:    #00B4D8;
-      --green:   #06D6A0;
-      --dark:    #1A1A2E;
-      --cream:   #FFFBF0;
+      --yellow:  #FDECEA;
+      --orange:  #F03A2E;
+      --pink:    #F03A2E;
+      --blue:    #888888;
+      --green:   #888888;
+      --dark:    #1A1A1A;
+      --cream:   #FFFFFF;
       --font-display: 'Dunggeunmiso', sans-serif;
       --font-body: 'Dunggeunmiso', sans-serif;
     }
@@ -57,7 +57,7 @@
     body {
       font-family: var(--font-body);
       background: var(--cream);
-      color: var(--dark);
+      color: #1A1A1A;
       overflow-x: hidden;
     }
 
@@ -74,7 +74,7 @@
 
     /* ── TOP BAR ── */
     .top-bar {
-      background: #FF6FC8;
+      background: #F03A2E;
       color: #fff;
       text-align: center;
       padding: 0.5rem 1rem;
@@ -88,17 +88,18 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: #111;
+      background: #FFFFFF;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.75rem 2rem;
-      border-bottom: 3px solid #FF6FC8;
+      border-bottom: 1px solid #E8E2D9;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
     }
     .nav-logo {
       font-family: var(--font-display);
       font-size: 1.1rem;
-      color: #FF6FC8;
+      color: #1A1A1A;
       letter-spacing: 0.04em;
       text-decoration: none;
     }
@@ -119,7 +120,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: #fff;
+      background: #1A1A1A;
       border-radius: 2px;
       transition: transform 0.25s, opacity 0.25s;
     }
@@ -129,8 +130,8 @@
       position: absolute;
       top: calc(100% + 8px);
       right: 0;
-      background: #111;
-      border: 2px solid #FF6FC8;
+      background: #1A1A1A;
+      border: 2px solid #C8394A;
       border-radius: 10px;
       min-width: 220px;
       padding: 0.5rem 0;
@@ -145,7 +146,7 @@
       display: block;
       font-family: 'Dunggeunmiso', sans-serif;
       font-size: 1rem;
-      color: #fff;
+      color: #1A1A1A;
       text-decoration: none;
       padding: 0.7rem 1.4rem;
       letter-spacing: 0.04em;
@@ -153,15 +154,15 @@
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .dropdown-link:last-child { border-bottom: none; }
-    .dropdown-link:hover { background: rgba(255,111,200,0.15); color: #FF6FC8; }
-    .dropdown-link-insta { color: #FF6FC8; }
-    .dropdown-link-insta:hover { background: rgba(255,111,200,0.2); }
+    .dropdown-link:hover { background: rgba(255,111,200,0.15); color: #1A1A1A; }
+    .dropdown-link-insta { color: #1A1A1A; }
+    .dropdown-link-insta:hover { background: #FDECEA; }
 
     /* hero label above poster */
     .hero-label {
       font-family: 'GumiRomance', sans-serif;
       font-size: clamp(2.6rem, 7vw, 3.5rem);
-      color: #fff;
+      color: #FFFFFF;
       letter-spacing: 0.18em;
       text-align: center;
       line-height: 1.4;
@@ -169,6 +170,15 @@
       position: relative;
       z-index: 2;
       opacity: 0.9;
+    }
+    .hero-word { display: inline-block; }
+    .hero-char {
+      display: inline-block;
+      animation: charBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes charBounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30%            { transform: translateY(-16px); }
     }
     /* nav-links removed — using hamburger menu */
 
@@ -181,7 +191,7 @@
       justify-content: center;
       align-items: center;
       padding: 3rem 2rem 2.5rem;
-      background: #c8d8e8;
+      background: #F03A2E;
       overflow: hidden;
     }
     /* concrete wall texture */
@@ -194,102 +204,81 @@
       pointer-events: none;
     }
 
-    /* ── POSTER ── */
-    .poster-wrap {
+    /* ── HERO DATE/PLACE ── */
+    .hero-date-text {
+      font-family: 'Dunggeunmiso', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.4rem;
       position: relative;
       z-index: 2;
-      width: min(520px, 92vw);
+      letter-spacing: 0.1em;
     }
-    /* pink tape strips */
-    .tape {
-      position: absolute;
-      width: 52px;
-      height: 22px;
-      background: #FF6FC8;
-      opacity: 0.88;
-      border-radius: 2px;
-      z-index: 10;
+    .hero-place-text {
+      font-family: 'Dunggeunmiso', sans-serif;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
     }
-    .tape::after {
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      position: relative;
+      z-index: 2;
+      background: #1A1A1A;
+      border-radius: 12px;
+      padding: 2rem 2.5rem 1.75rem;
+      width: min(480px, 90vw);
+    }
+    .countdown-title {
+      font-family: 'Dunggeunmiso', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.3em;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .flip-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .flip-num {
+      background: #2A2A2A;
+      color: #fff;
+      font-family: 'Arial Black', sans-serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 900;
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      position: relative;
+      letter-spacing: -0.02em;
+    }
+    .flip-num::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 4px,
-        rgba(255,255,255,0.18) 4px,
-        rgba(255,255,255,0.18) 5px
-      );
-      border-radius: 2px;
+      left: 0; right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(0,0,0,0.5);
     }
-    .tape-tl { top: -10px; left: 24px;  transform: rotate(-6deg); }
-    .tape-tr { top: -10px; right: 24px; transform: rotate(5deg); }
-
-    .poster-body {
-      background: #fff;
-      padding: 2rem 2rem 0;
-      box-shadow: 4px 6px 28px rgba(0,0,0,0.18);
-      transform: rotate(-0.6deg);
-    }
-
-    /* poster-brand removed */
-    .poster-missing {
+    .flip-label {
       font-family: 'Dunggeunmiso', sans-serif;
-      font-size: clamp(2.4rem, 9vw, 3.8rem);
-      color: #111;
-      text-align: center;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .kw-heart {
-      font-size: 1.4rem;
-      color: #FF6FC8;
-      background: transparent !important;
-    }
-
-    /* keyword heart shape */
-    .poster-keywords {
-      padding: 1rem 0.5rem 1.2rem;
-    }
-    .kw-row {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 5px;
-    }
-    .kw {
-      font-family: 'Dunggeunmiso', sans-serif;
-      font-size: clamp(0.78rem, 2.2vw, 1rem);
-      padding: 3px 7px;
-      color: #111;
-      white-space: nowrap;
-    }
-    .kw-pink   { background: #FFCCE8; }
-    .kw-yellow { background: #FFF176; }
-    .kw-blue   { background: #B3E5FC; }
-    .kw-green  { background: #C8E6C9; }
-    .kw-orange { background: #FFE0B2; }
-
-    /* date-place row */
-    .poster-info {
-      text-align: center;
-      padding: 0.6rem 0 1.4rem;
-      border-top: 1.5px dashed #ddd;
-      margin-top: 0.2rem;
-    }
-    .poster-date {
-      font-family: 'Dunggeunmiso', sans-serif;
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      color: #111;
-      letter-spacing: 0.06em;
-    }
-    .poster-place {
-      font-family: 'Dunggeunmiso', sans-serif;
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      color: #111;
-      margin-top: 0.25rem;
-      letter-spacing: 0.06em;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.15em;
     }
 
     /* CTA below poster */
@@ -315,8 +304,8 @@
       border: none;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-    .btn-primary { background: #FF6FC8; color: #fff; }
-    .btn-outline  { background: transparent; color: #111; border: 2px solid #111; }
+    .btn-primary { background: #F03A2E; color: #fff; }
+    .btn-outline  { background: transparent; color: #111; border: 2px solid #E8E2D9; }
 
     /* keep unused classes harmless */
     .hero-cta { display: none; }
@@ -332,7 +321,9 @@
     }
 
     /* ── SECTION SHARED ── */
-    section { padding: 6rem 2rem; }
+    section { padding: 6rem 2rem; border-top: 1px solid #E8E2D9; }
+    section:first-of-type { border-top: none; }
+    #hero { border-top: none; }
     .section-inner { max-width: 1080px; margin: 0 auto; }
     .section-label {
       font-size: 0.78rem;
@@ -340,19 +331,19 @@
       font-family: 'GumiRomance', sans-serif;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: #C8394A;
       margin-bottom: 0.6rem;
     }
     .section-title {
       font-family: 'GumiRomance', sans-serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
-      color: var(--dark);
+      color: #1A1A1A;
       line-height: 1.15;
       margin-bottom: 2.5rem;
     }
 
     /* ── THEME ── */
-    #about { background: var(--cream); }
+    #about { background: #FFFFFF; }
 
     .theme-wrap {
       display: grid;
@@ -363,7 +354,7 @@
     .theme-quote {
       position: relative;
       padding: 2rem 2rem 2rem 2.5rem;
-      border-left: 4px solid #FF6FC8;
+      border-left: 4px solid #F03A2E;
       background: #fff;
       border-radius: 0 12px 12px 0;
     }
@@ -371,19 +362,19 @@
       font-family: 'Dunggeunmiso', sans-serif;
       font-size: clamp(1.3rem, 3vw, 1.55rem);
       line-height: 1.8;
-      color: var(--dark);
+      color: #1A1A1A;
     }
     .theme-quote-mark {
       font-family: Georgia, serif;
       font-size: 4rem;
-      color: #FF6FC8;
+      color: #1A1A1A;
       line-height: 1;
       display: block;
       margin-bottom: -1rem;
     }
     .theme-quote-center {
       border-left: none;
-      border-top: 4px solid #FF6FC8;
+      border-top: 4px solid #F03A2E;
       border-radius: 12px;
       text-align: center;
       padding: 2rem;
@@ -403,18 +394,18 @@
       min-width: 120px;
       text-align: center;
     }
-    .tw-pink   { background: #FFCCE8; color: #111; }
-    .tw-blue   { background: #B3E5FC; color: #111; }
-    .tw-yellow { background: #FFF176; color: #111; }
-    .tw-green  { background: #C8E6C9; color: #111; }
+    .tw-pink   { background: #FDECEA; color: #111; }
+    .tw-blue   { background: #FAF7F2; color: #111; }
+    .tw-yellow { background: #FDECEA; color: #111; }
+    .tw-green  { background: #FAF7F2; color: #111; }
     .tw-plain  { background: transparent; color: #aaa; font-size: 1.3rem; }
 
     /* ── TIMETABLE ── */
     .timetable {
       margin-bottom: 2.5rem;
       padding: 2rem 1.5rem 2rem 1rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,111,200,0.25);
+      background: #FFFFFF;
+      border: 1px solid #E8E2D9;
       border-radius: 20px;
     }
         .tt-rows {
@@ -439,13 +430,13 @@
       display: block;
       width: 2px;
       min-height: 44px;
-      background: rgba(255,111,200,0.35);
+      background: rgba(211,47,47,0.2);
       margin-top: 4px;
     }
     .tt-time {
       font-family: 'Dunggeunmiso', sans-serif;
       font-size: 1rem;
-      color: #ffffff;
+      color: #1A1A1A;
       text-align: right;
       padding-top: 4px;
       letter-spacing: 0.04em;
@@ -454,9 +445,9 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: #FF6FC8;
-      border: 3px solid var(--dark);
-      outline: 2px solid #FF6FC8;
+      background: #F03A2E;
+      border: 3px solid #FFFFFF;
+      outline: 2px solid #F03A2E;
       flex-shrink: 0;
       margin-top: 3px;
     }
@@ -470,31 +461,31 @@
       font-family: 'Dunggeunmiso', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      color: #fff;
+      color: #1A1A1A;
       line-height: 1.4;
     }
     .tt-content-sub {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.8);
       margin-top: 0.2rem;
     }
 
     /* ── EVENT ── */
-    #event { background: var(--dark); }
+    #event { background: #FFFFFF; }
     .event-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 1.25rem;
     }
     .event-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #FFFFFF;
+      border: 1px solid #E8E2D9;
       border-radius: 12px;
       padding: 1.75rem 1.5rem;
       transition: background 0.2s, transform 0.2s;
     }
     .event-card:hover {
-      background: rgba(255,255,255,0.1);
+      background: #FAF7F2;
       transform: translateY(-4px);
     }
     .event-icon {
@@ -504,20 +495,20 @@
     .event-card h3 {
       font-family: 'GumiRomance', sans-serif;
       font-size: 1.1rem;
-      color: #FF6FC8;
+      color: #1A1A1A;
       margin-bottom: 0.6rem;
     }
     .event-card p {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.72);
+      color: #555555;
       line-height: 1.7;
       font-family: 'Dunggeunmiso', sans-serif;
     }
 
     /* ── HB:YOUTH ── */
-    #youth { background: #0d0d1a; }
-    #youth .section-label { color: #FF6FC8; }
-    #youth .section-title { color: #fff; font-family: 'GumiRomance', sans-serif; }
+    #youth { background: #FFFFFF; }
+    #youth .section-label { color: #1A1A1A; }
+    #youth .section-title { color: #1A1A1A; font-family: 'GumiRomance', sans-serif; }
     .youth-wrap {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -527,7 +518,7 @@
     .youth-text p {
       font-size: 1rem;
       line-height: 1.9;
-      color: rgba(255,255,255,0.78);
+      color: #1A1A1A;
       margin-bottom: 1rem;
       font-family: 'Dunggeunmiso', sans-serif;
     }
@@ -552,19 +543,26 @@
     .youth-btn:hover { transform: translateY(-2px); opacity: 0.88; }
     .youth-insta  { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
     .youth-youtube { background: #FF0000; color: #fff; }
+    .youth-church  { background: #F03A2E; color: #fff; }
+    .youth-worship {
+      font-size: 0.88rem;
+      color: #F03A2E;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
 
     /* ── SCHEDULE ── */
-    #schedule { background: var(--dark); }
+    #schedule { background: #FFFFFF; }
     #schedule .section-title { color: #fff; }
-    #schedule .section-label { color: var(--green); }
+    #schedule .section-label { color: #F03A2E; }
     .schedule-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.25rem;
     }
     .schedule-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #FFFFFF;
+      border: 1px solid #E8E2D9;
       border-radius: 10px;
       padding: 1.5rem;
       transition: background 0.2s, transform 0.2s;
@@ -576,23 +574,23 @@
     .sched-date {
       font-family: var(--font-display);
       font-size: 2.2rem;
-      color: var(--yellow);
+      color: #F03A2E;
       line-height: 1;
     }
     .sched-month {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 0.75rem;
     }
     .sched-time {
       font-size: 0.9rem;
       font-weight: 700;
-      color: var(--green);
+      color: #F03A2E;
       margin-bottom: 0.4rem;
     }
     .sched-desc {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
+      color: #555555;
       line-height: 1.6;
     }
     .sched-badge {
@@ -604,11 +602,11 @@
       font-weight: 700;
       letter-spacing: 0.08em;
     }
-    .badge-open   { background: var(--green); color: var(--dark); }
+    .badge-open   { background: var(--green); color: #1A1A1A; }
     .badge-coming { background: var(--orange); color: #fff; }
 
     /* ── MAP / LOCATION ── */
-    #location { background: var(--cream); }
+    #location { background: #FFFFFF; }
     .location-wrap {
       display: grid;
       grid-template-columns: 1fr;
@@ -634,16 +632,16 @@
       letter-spacing: 0.02em;
     }
     .map-btn:hover { transform: translateY(-2px); opacity: 0.88; }
-    .map-btn-naver { background: #03C75A; color: #fff; }
+    .map-btn-naver { background: #03C75A; color: #FFFFFF; }
     .map-btn-kakao { background: #FEE500; color: #3C1E1E; }
     .location-info p {
       font-size: 0.95rem;
       line-height: 1.8;
-      color: #444;
+      color: #1A1A1A;
       margin-bottom: 1rem;
       font-family: 'Dunggeunmiso', sans-serif;
     }
-    .location-info strong { color: var(--dark); }
+    .location-info strong { color: #1A1A1A; }
     .transport-list { list-style: none; margin-top: 1.5rem; }
     .transport-list li {
       display: flex;
@@ -652,7 +650,7 @@
       font-size: 0.9rem;
       line-height: 1.6;
       margin-bottom: 0.75rem;
-      color: #444;
+      color: #1A1A1A;
       font-family: 'Dunggeunmiso', sans-serif;
     }
     .transport-icon {
@@ -667,13 +665,13 @@
       font-weight: 700;
     }
     .ti-subway { background: #2196F3; color: #fff; }
-    .ti-bus    { background: var(--green); color: var(--dark); }
-    .ti-walk   { background: var(--yellow); color: var(--dark); }
+    .ti-bus    { background: var(--green); color: #1A1A1A; }
+    .ti-walk   { background: var(--yellow); color: #1A1A1A; }
     .map-box {
       border-radius: 12px;
       overflow: hidden;
-      border: 3px solid var(--dark);
-      box-shadow: 8px 8px 0 var(--orange);
+      border: 3px solid #1A1A1A;
+      box-shadow: 8px 8px 0 #F03A2E;
     }
     .map-box iframe {
       display: block;
@@ -683,14 +681,14 @@
     }
 
     /* ── APPLY / FORM ── */
-    #apply { background: var(--orange); }
+    #apply { background: #F03A2E; }
     #apply .section-title { color: #fff; }
-    #apply .section-label { color: rgba(255,255,255,0.7); }
+    #apply .section-label { color: #555555; }
     .form-card {
       background: #fff;
       border-radius: 16px;
       padding: 2.5rem;
-      box-shadow: 10px 10px 0 var(--dark);
+      box-shadow: 10px 10px 0 #1A1A1A;
     }
     .form-row {
       display: grid;
@@ -707,7 +705,7 @@
     label {
       font-size: 0.82rem;
       font-weight: 700;
-      color: var(--dark);
+      color: #1A1A1A;
       letter-spacing: 0.05em;
     }
     input, select, textarea {
@@ -717,22 +715,22 @@
       border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.92rem;
-      color: var(--dark);
+      color: #1A1A1A;
       background: #fafafa;
       transition: border-color 0.2s;
       width: 100%;
     }
     input:focus, select:focus, textarea:focus {
       outline: none;
-      border-color: var(--orange);
+      border-color: #C8394A;
       background: #fff;
     }
     textarea { resize: vertical; min-height: 110px; }
     .form-submit {
       width: 100%;
       padding: 1rem;
-      background: var(--dark);
-      color: var(--yellow);
+      background: #1A1A1A;
+      color: #F03A2E;
       font-family: var(--font-display);
       font-size: 1.1rem;
       letter-spacing: 0.05em;
@@ -750,7 +748,7 @@
       bottom: 2rem;
       right: 2rem;
       background: var(--green);
-      color: var(--dark);
+      color: #1A1A1A;
       font-weight: 700;
       padding: 1rem 1.5rem;
       border-radius: 8px;
@@ -763,7 +761,7 @@
     #toast.show { transform: translateY(0); }
 
     /* ── CONTACT ── */
-    #contact { background: var(--cream); }
+    #contact { background: #FFFFFF; }
     .contact-dm {
       display: flex;
       flex-direction: column;
@@ -772,13 +770,13 @@
       padding: 2.5rem;
       background: #fff;
       border-radius: 16px;
-      border: 2px solid #111;
-      box-shadow: 6px 6px 0 #FF6FC8;
+      border: 2px solid #E8E2D9;
+      box-shadow: 4px 4px 0 #F03A2E;
       max-width: 480px;
     }
     .contact-dm-desc {
       font-size: 1rem;
-      color: #555;
+      color: #888888;
       text-align: center;
     }
     .contact-dm-btn {
@@ -786,7 +784,7 @@
       align-items: center;
       gap: 0.6rem;
       padding: 0.9rem 2rem;
-      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      background: #F03A2E;
       color: #fff;
       font-family: var(--font-display);
       font-size: 1.05rem;
@@ -804,12 +802,12 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--dark);
+      background: #1A1A1A;
       color: #fff;
       text-align: center;
       padding: 2rem;
       font-size: 0.82rem;
-      border-top: 3px solid var(--yellow);
+      border-top: 3px solid #F03A2E;
     }
     footer strong { color: #fff; }
 
@@ -844,15 +842,15 @@
 <nav>
   <a class="nav-logo" href="#hero">
     <svg width="48" height="48" viewBox="-55 -55 110 110" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="0" cy="0" r="52" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
-      <circle cx="0" cy="0" r="46" fill="none" stroke="#FF6FC8" stroke-width="1.5"/>
-      <text x="0" y="-6" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#fff" letter-spacing="3" text-anchor="middle">WE</text>
-      <line x1="-28" y1="2" x2="28" y2="2" stroke="#FF6FC8" stroke-width="1"/>
-      <text x="0" y="20" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#FF6FC8" letter-spacing="5" text-anchor="middle">HB</text>
+      <circle cx="0" cy="0" r="52" fill="none" stroke="#E8E2D9" stroke-width="1"/>
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#F03A2E" stroke-width="1.5"/>
+      <text x="0" y="-6" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#1A1A1A" letter-spacing="3" text-anchor="middle">WE</text>
+      <line x1="-28" y1="2" x2="28" y2="2" stroke="#F03A2E" stroke-width="1"/>
+      <text x="0" y="20" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#F03A2E" letter-spacing="5" text-anchor="middle">HB</text>
     </svg>
   </a>
   <div style="position:relative;">
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" onclick="toggleMenu(event)">
       <span></span><span></span><span></span>
     </button>
     <div class="dropdown-menu" id="dropdownMenu">
@@ -868,60 +866,40 @@
 <!-- HERO -->
 <section id="hero">
 
-  <p class="hero-label">해방촌<br>신흥시장 버스킹</p>
+  <p class="hero-label" id="heroLabel">
+    <span class="hero-word">
+      <span class="hero-char" style="animation-delay:0s">해</span><span class="hero-char" style="animation-delay:0.1s">방</span><span class="hero-char" style="animation-delay:0.2s">촌</span>
+    </span>
+    <br>
+    <span class="hero-word" style="font-size:0.82em">
+      <span class="hero-char" style="animation-delay:0.3s">신</span><span class="hero-char" style="animation-delay:0.4s">흥</span><span class="hero-char" style="animation-delay:0.5s">시</span><span class="hero-char" style="animation-delay:0.6s">장</span><span class="hero-char" style="animation-delay:0.7s"> </span><span class="hero-char" style="animation-delay:0.8s">버</span><span class="hero-char" style="animation-delay:0.9s">스</span><span class="hero-char" style="animation-delay:1.0s">킹</span>
+    </span>
+  </p>
 
+  <p class="hero-date-text">2026.05.09 6PM</p>
+  <p class="hero-place-text">해방촌 신흥시장 내 스페이스 원 루프탑</p>
 
-  <div class="poster-wrap">
-    <!-- tape strips -->
-    <div class="tape tape-tl"></div>
-    <div class="tape tape-tr"></div>
-
-    <div class="poster-body">
-      <!-- title -->
-      <h1 class="poster-missing">MISSING?</h1>
-
-      <!-- keyword cloud in heart shape -->
-      <div class="poster-keywords">
-        <!-- 하트 모양: 위로 볼록한 두 봉우리 → 아래로 모이는 형태 -->
-        <div class="kw-row">
-          <span class="kw kw-pink">사랑</span>
-          <span class="kw kw-blue">연결</span>
-        </div>
-        <div class="kw-row">
-          <span class="kw kw-yellow">관계</span>
-          <span class="kw kw-orange">사람</span>
-          <span class="kw kw-green">공감</span>
-        </div>
-        <div class="kw-row">
-          <span class="kw kw-blue">위로</span>
-          <span class="kw kw-pink">회복</span>
-          <span class="kw kw-yellow">갈등</span>
-          <span class="kw kw-orange">청춘</span>
-        </div>
-        <div class="kw-row">
-          <span class="kw kw-green">진심</span>
-          <span class="kw kw-pink">고백</span>
-          <span class="kw kw-blue">만남</span>
-        </div>
-        <div class="kw-row">
-          <span class="kw kw-yellow">이야기</span>
-          <span class="kw kw-orange">선택</span>
-        </div>
-        <div class="kw-row">
-          <span class="kw kw-heart">♥</span>
-        </div>
+  <div class="countdown-wrap">
+    <p class="countdown-title">COMING SOON</p>
+    <div class="countdown-grid">
+      <div class="flip-card">
+        <div class="flip-num" id="cd-days">00</div>
+        <div class="flip-label">DAYS</div>
       </div>
-
-      <!-- date & place -->
-      <div class="poster-info">
-        <p class="poster-date">2026.05.09 &nbsp;6PM</p>
-        <p class="poster-place">해방촌 신흥시장 내 스페이스 원 루프탑</p>
+      <div class="flip-card">
+        <div class="flip-num" id="cd-hours">00</div>
+        <div class="flip-label">HOURS</div>
       </div>
-
-    </div><!-- /poster-body -->
-  </div><!-- /poster-wrap -->
-
-
+      <div class="flip-card">
+        <div class="flip-num" id="cd-minutes">00</div>
+        <div class="flip-label">MINUTES</div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-num" id="cd-seconds">00</div>
+        <div class="flip-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
 
 </section>
 
@@ -943,8 +921,8 @@
 <!-- EVENT -->
 <section id="event">
   <div class="section-inner">
-    <p class="section-label reveal" style="color:var(--green);">이벤트 내용</p>
-    <h2 class="section-title reveal" style="color:#fff;">당일 이렇게<br>진행돼요</h2>
+    <p class="section-label reveal" style="color:#F03A2E;">이벤트 내용</p>
+    <h2 class="section-title reveal" style="color:#1A1A1A;">당일 이렇게<br>진행돼요</h2>
 
     <!-- TIMETABLE -->
     <div class="timetable reveal">
@@ -1047,11 +1025,12 @@
 <section id="youth">
   <div class="section-inner">
     <p class="section-label reveal">우리를 소개합니다</p>
-    <h2 class="section-title reveal">해방교회 청년부<br><span style="color:#FF6FC8;">HB:YOUTH</span></h2>
+    <h2 class="section-title reveal">해방교회 청년부<br><span style="color:#F03A2E;">WE:HB</span></h2>
     <div class="youth-wrap reveal">
       <div class="youth-text">
         <p>남산 아래 해방촌에 위치한 해방교회 청년부,<br>청년들의 열정으로 매일 새로워지는 공동체입니다.</p>
         <p>하나 됨을 꿈꾸며<br>세상 속으로 나아갑니다.</p>
+        <p class="youth-worship">⛪ 청년부 예배시간 · 주일 오후 1시 본당</p>
       </div>
       <div class="youth-links">
         <a href="https://www.instagram.com/our.haebang.diary?igsh=MXNibnNha2h3a3pjdA==" target="_blank" rel="noopener" class="youth-btn youth-insta">
@@ -1061,6 +1040,10 @@
         <a href="https://youtube.com/@we_hb?si=bLHHwHLzWwL2szFj" target="_blank" rel="noopener" class="youth-btn youth-youtube">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           YouTube
+        </a>
+        <a href="https://www.haebang.or.kr/" target="_blank" rel="noopener" class="youth-btn youth-church">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l1 1h1v13h4v-5h4v5h4V8h1l1-1zm0 2.2L18 7v13h-2v-5H8v5H6V7z"/></svg>
+          해방교회 홈페이지
         </a>
       </div>
     </div>
@@ -1090,21 +1073,50 @@
 
 
 <script>
-  // ── Dropdown Menu ──
-  const hamburger = document.getElementById('hamburger');
-  const dropdownMenu = document.getElementById('dropdownMenu');
+  // ── Countdown Timer ──
+  function updateCountdown() {
+    var target = new Date(2026, 4, 9, 18, 0, 0); // 2026년 5월 9일 18:00 로컬시간
+    var now = new Date();
+    var diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-minutes').textContent = '00';
+      document.getElementById('cd-seconds').textContent = '00';
+      return;
+    }
+    var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('cd-days').textContent    = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent   = String(hours).padStart(2,'0');
+    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-  hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdownMenu.classList.toggle('open');
+  // ── Hero char bounce delay ──
+  document.querySelectorAll('.hero-char').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.1}s`;
   });
 
-  function closeMenu() {
-    dropdownMenu.classList.remove('open');
+  // ── Dropdown Menu ──
+  window.toggleMenu = function(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('dropdownMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
   }
-
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target)) closeMenu();
+  window.closeMenu = function() {
+    document.getElementById('dropdownMenu').style.display = 'none';
+  }
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('dropdownMenu');
+    if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.style.display = 'none';
+    }
   });
 
   // ── Scroll Reveal ──
