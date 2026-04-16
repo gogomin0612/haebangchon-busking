@@ -324,7 +324,7 @@
     section { padding: 6rem 2rem; border-top: 1px solid #E8E2D9; }
     section:first-of-type { border-top: none; }
     #hero { border-top: none; }
-    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-inner { max-width: 480px; margin: 0 auto; }
     .section-label {
       font-size: 0.78rem;
       font-weight: 700;
@@ -541,9 +541,24 @@
       white-space: nowrap;
     }
     .youth-btn:hover { transform: translateY(-2px); opacity: 0.88; }
-    .youth-insta  { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-    .youth-youtube { background: #FF0000; color: #fff; }
-    .youth-church  { background: #F03A2E; color: #fff; }
+    .youth-church-wrap {
+      margin-top: 1.25rem;
+    }
+    .youth-church {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      background: transparent;
+      color: #F03A2E;
+      border: 2px solid #F03A2E;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .youth-church:hover { background: #F03A2E; color: #fff; }
     .youth-worship {
       font-size: 0.88rem;
       color: #F03A2E;
@@ -664,8 +679,8 @@
       font-size: 0.85rem;
       font-weight: 700;
     }
-    .ti-subway { background: #2196F3; color: #fff; }
-    .ti-bus    { background: var(--green); color: #1A1A1A; }
+    .ti-subway { background: #F03A2E; color: #fff; }
+    .ti-bus    { background: #1A1A1A; color: #fff; }
     .ti-walk   { background: var(--yellow); color: #1A1A1A; }
     .map-box {
       border-radius: 12px;
@@ -850,15 +865,15 @@
     </svg>
   </a>
   <div style="position:relative;">
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" onclick="toggleMenu(event)">
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
     <div class="dropdown-menu" id="dropdownMenu">
-      <a href="#about"    class="dropdown-link" onclick="closeMenu()">버스킹 주제</a>
-      <a href="#event"    class="dropdown-link" onclick="closeMenu()">이벤트 내용</a>
-      <a href="#location" class="dropdown-link" onclick="closeMenu()">오시는 길</a>
-      <a href="#youth"    class="dropdown-link" onclick="closeMenu()">해방교회 청년부 소개</a>
-      <a href="https://www.instagram.com/our.haebang.diary?igsh=MXNibnNha2h3a3pjdA==" target="_blank" rel="noopener" class="dropdown-link dropdown-link-insta" onclick="closeMenu()">📩 문의사항 인스타그램 DM</a>
+      <a href="#about"    class="dropdown-link">버스킹 주제</a>
+      <a href="#event"    class="dropdown-link">이벤트 내용</a>
+      <a href="#location" class="dropdown-link">오시는 길</a>
+      <a href="#youth"    class="dropdown-link">해방교회 청년부 소개</a>
+      <a href="https://www.instagram.com/our.haebang.diary?igsh=MXNibnNha2h3a3pjdA==" target="_blank" rel="noopener" class="dropdown-link dropdown-link-insta">📩 문의사항 인스타그램 DM</a>
     </div>
   </div>
 </nav>
@@ -931,7 +946,7 @@
           <div class="tt-time">17:00</div>
           <div class="tt-dot-wrap"><div class="tt-dot"></div></div>
           <div class="tt-content-wrap">
-            <p class="tt-content">포토존 · 스낵부스존 · 사랑의 메시지 존 오픈</p>
+            <p class="tt-content">이벤트 존 전체 오픈</p>
           </div>
         </div>
         <div class="tt-row">
@@ -1001,10 +1016,6 @@
             <span class="transport-icon ti-bus">버</span>
             <span>마을버스 <strong>용산 02번</strong> 신흥시장 정류장 하차<br><small style="opacity:0.6;">이태원역 앞에서 탑승 가능</small></span>
           </li>
-          <li>
-            <span class="transport-icon ti-walk">도</span>
-            <span>이태원 메인 거리에서 <strong>도보 약 15분</strong><br><small style="opacity:0.6;">경리단길 방향으로 걷다 보면 표지판 있음</small></span>
-          </li>
         </ul>
         <div class="map-btns">
           <a href="https://naver.me/xmx26kor" target="_blank" rel="noopener" class="map-btn map-btn-naver">
@@ -1031,6 +1042,11 @@
         <p>남산 아래 해방촌에 위치한 해방교회 청년부,<br>청년들의 열정으로 매일 새로워지는 공동체입니다.</p>
         <p>하나 됨을 꿈꾸며<br>세상 속으로 나아갑니다.</p>
         <p class="youth-worship">⛪ 청년부 예배시간 · 주일 오후 1시 본당</p>
+        <div class="youth-church-wrap">
+          <a href="https://www.haebang.or.kr/" target="_blank" rel="noopener" class="youth-church">
+            🏛 해방교회 홈페이지 바로가기
+          </a>
+        </div>
       </div>
       <div class="youth-links">
         <a href="https://www.instagram.com/our.haebang.diary?igsh=MXNibnNha2h3a3pjdA==" target="_blank" rel="noopener" class="youth-btn youth-insta">
@@ -1040,10 +1056,6 @@
         <a href="https://youtube.com/@we_hb?si=bLHHwHLzWwL2szFj" target="_blank" rel="noopener" class="youth-btn youth-youtube">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           YouTube
-        </a>
-        <a href="https://www.haebang.or.kr/" target="_blank" rel="noopener" class="youth-btn youth-church">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l1 1h1v13h4v-5h4v5h4V8h1l1-1zm0 2.2L18 7v13h-2v-5H8v5H6V7z"/></svg>
-          해방교회 홈페이지
         </a>
       </div>
     </div>
@@ -1071,58 +1083,74 @@
   <p>© 2026 해방교회 청년부 — 신흥시장 버스킹</p>
 </footer>
 
-
 <script>
-  // ── Countdown Timer ──
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── 햄버거 메뉴 ──
+  var btn  = document.getElementById('hamburger');
+  var menu = document.getElementById('dropdownMenu');
+
+  if (btn && menu) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    });
+    document.addEventListener('click', function(e) {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+    // 메뉴 링크 클릭시 닫기
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.style.display = 'none';
+      });
+    });
+  }
+
+  // ── 카운트다운 ──
   function updateCountdown() {
-    var target = new Date(2026, 4, 9, 18, 0, 0); // 2026년 5월 9일 18:00 로컬시간
-    var now = new Date();
-    var diff = target - now;
+    var target = new Date(2026, 4, 9, 18, 0, 0);
+    var now    = new Date();
+    var diff   = target - now;
+    var dEl = document.getElementById('cd-days');
+    var hEl = document.getElementById('cd-hours');
+    var mEl = document.getElementById('cd-minutes');
+    var sEl = document.getElementById('cd-seconds');
+    if (!dEl) return;
     if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-minutes').textContent = '00';
-      document.getElementById('cd-seconds').textContent = '00';
+      dEl.textContent = '00'; hEl.textContent = '00';
+      mEl.textContent = '00'; sEl.textContent = '00';
       return;
     }
-    var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-    var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById('cd-days').textContent    = String(days).padStart(2,'0');
-    document.getElementById('cd-hours').textContent   = String(hours).padStart(2,'0');
-    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
-    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+    dEl.textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    hEl.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    mEl.textContent = String(Math.floor((diff % 3600000)  / 60000)).padStart(2,'0');
+    sEl.textContent = String(Math.floor((diff % 60000)    / 1000)).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
   // ── Hero char bounce delay ──
-  document.querySelectorAll('.hero-char').forEach((el, i) => {
-    el.style.animationDelay = `${i * 0.1}s`;
-  });
-
-  // ── Dropdown Menu ──
-  window.toggleMenu = function(e) {
-    e.stopPropagation();
-    var menu = document.getElementById('dropdownMenu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-  window.closeMenu = function() {
-    document.getElementById('dropdownMenu').style.display = 'none';
-  }
-  document.addEventListener('click', function(e) {
-    var btn = document.getElementById('hamburger');
-    var menu = document.getElementById('dropdownMenu');
-    if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.style.display = 'none';
-    }
+  document.querySelectorAll('.hero-char').forEach(function(el, i) {
+    el.style.animationDelay = (i * 0.1) + 's';
   });
 
   // ── Scroll Reveal ──
-  const revealEls = document.querySelectorAll('.reveal');
-  // First hide them all
-  revealEls.forEach(el => el.classList.add('hidden'));
+  var revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(function(el) { el.classList.add('hidden'); });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e, i) {
+      if (e.isIntersecting) {
+        setTimeout(function() { e.target.classList.remove('hidden'); }, i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(function(el) { observer.observe(el); });
+
+});
+</script>
   // Then reveal on scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
